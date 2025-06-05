@@ -1,0 +1,23 @@
+{
+  "name": "demoapp",
+  "version": "1.0.0",
+  "description": "Just testing app building",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Priyo61/DemoApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Priyo61/DemoApp/issues"
+  },
+  "homepage": "https://github.com/Priyo61/DemoApp#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
