@@ -6,5 +6,10 @@ app.get("/", (req, res) => {
     mgs: "home page",
   });
 });
+app.post("/", (req, res) => {
+  res.json({
+    mgs: "home page",
+  });
+});
 
 app.listen(3030);
