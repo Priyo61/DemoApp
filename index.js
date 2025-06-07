@@ -13,3 +13,14 @@ app.use("/api/v1/course", courseRouter);
 app.listen(3030, () => {
   console.log("server connected");
 });
+
+async function main() {
+  await mongoose.connect(
+    "mongodb+srv://priyobrata61:Sorokhaibam61@cluster0.vntxddf.mongodb.net/app"
+  );
+  app.listen(3030, () => {
+    console.log("server connected");
+  });
+  console.log("new connected");
+}
+main();
