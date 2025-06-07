@@ -8,4 +8,6 @@ const { courseRouter } = require("./routes/course");
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/course", courseRouter);
 
-app.listen(3030);
+app.listen(3030, () => {
+  console.log("server connected");
+});
