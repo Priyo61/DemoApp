@@ -66,8 +66,22 @@ adminRouter.post("/course", adminMiddleware, async (req, res) => {
   });
 });
 
-adminRouter.put("/course", (req, res) => {
-  const { title, description, price, imageUrl, creatorId } = req.body;
+adminRouter.put("/course", adminMiddleware, async (req, res) => {
+  const adminId = req.adminId;
+  const { title, description, price, imageUrl, courseId } = req.body;
+
+  const course = await courseModel.updateOne(
+    {
+      _id: courseId,
+      creatorId: adminId,
+    },
+    {
+      title,
+      description,
+      imageUrl,
+      price,
+    }
+  );
 
   res.json({
     mgs: "admin course changed",
@@ -78,9 +92,15 @@ adminRouter.delete("/course", (req, res) => {
     mgs: "admin delete endpoint",
   });
 });
-adminRouter.get("/course/all", (req, res) => {
+adminRouter.get("/course/all", adminMiddleware, async (req, res) => {
+  const adminId = req.adminId;
+
+  const course = await courseModel.find({
+    creatorId: adminId,
+  });
   res.json({
     mgs: "admin get all endpont",
+    course,
   });
 });
 
