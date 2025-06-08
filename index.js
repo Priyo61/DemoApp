@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -12,14 +14,8 @@ app.use("/api/v1/user", userRouter);
 app.use("/api/v1/admin", adminRouter);
 app.use("/api/v1/course", courseRouter);
 
-app.listen(3030, () => {
-  console.log("server connected");
-});
-
 async function main() {
-  await mongoose.connect(
-    "mongodb+srv://priyobrata61:Sorokhaibam61@cluster0.vntxddf.mongodb.net/app"
-  );
+  await mongoose.connect(process.env.Mongo_url);
   app.listen(3030, () => {
     console.log("server connected");
   });
